@@ -62,7 +62,7 @@ main > section:not(:first-child) {margin-top: 50px; border-top: dotted 1px #444;
 .mission > h4, .formation > h4 {margin: 0.2em 0 .2em 1em;}
 .mission .description, .formation .description {list-style: none; padding: 0;}
 
-.mission summary {display: block;font-size: 1.17em;margin-block-start: 1em;margin-block-end: 1em;margin-inline-start: 0px;margin-inline-end: 0px;font-weight: bold;cursor: pointer;}
+.mission summary {font-size: 1.17em;margin-block-start: 1em;margin-block-end: 1em;margin-inline-start: 0px;margin-inline-end: 0px;font-weight: bold;cursor: pointer;}
 .mission .technologies {list-style: none;padding: 0;display: flex;flex-wrap: wrap;gap: 0.5em;}
 .mission .technologies li {background: #333;padding: 0.2em 0.5em;border-radius: 5px;}
 .mission .tasks {padding-left: 40px;}
