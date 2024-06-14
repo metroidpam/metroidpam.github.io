@@ -1,7 +1,7 @@
 @font-face {
 	font-family: 'Share Tech Mono';
-	src: url('https://n-o-d-e.live/fonts/font.eot');
-	src: local('â˜º'), url('https://n-o-d-e.live/fonts/font.woff') format('woff'), url('https://n-o-d-e.live/fonts/font.ttf') format('truetype'), url('https://n-o-d-e.live/fonts/font.svg') format('svg');
+	src: url('font.eot');
+	src: local('â˜º'), url('font.woff') format('woff'), url('font.ttf') format('truetype');
 }
 
 /* gardevoir 2.1.0 */
