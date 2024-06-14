@@ -18,9 +18,9 @@
 		<section id="experiences">
 			<h1>Expériences professionnelles</h1>
 			<article>
-				<h2>ARHS Consulting</h2>
-				<section class="mission">
-					<h3>Consultant Junior Software Engineer</h3>
+				<h2>ARHS Consulting<span data-time data-start="11/09/2023"></span></h2>
+				<details open class="mission">
+					<summary>Consultant Junior Software Engineer<span data-time data-start="19/02/2024"></span></summary>
 					<ul class="description">
 						<li><b>Service central de législation</b></li>
 						<li>19 février 2024 - Maintenant</li>
@@ -41,9 +41,9 @@
 						<li>Docker</li>
 						<li>IntelliJ</li>
 					</ul>
-				</section>
-				<section class="mission">
-					<h3>Junior Software Engineeer</h3>
+				</details>
+				<details open class="mission">
+					<summary>Junior Software Engineeer<span data-time data-start="11/09/2023" data-end="19/02/2024"></span></summary>
 					<ul class="description">
 						<li><b>Projet eAdem</b></li>
 						<li>11 Septembre 2023 - 19 Février 2024</li>
@@ -68,12 +68,12 @@
 						<li>IntelliJ</li>
 						<li>OpenAPI</li>
 					</ul>
-				</section>
+				</details>
 			</article>
 			<article>
 				<h2>Gamestream Paris</h2>
 				<details class="mission">
-					<summary>Alternant développeur junior R&D</summary>
+					<summary>Alternant développeur junior R&D<span data-time data-start="11/11/2021" data-end="25/08/2023"></span></summary>
 					<ul class="description">
 						<li><b>Service R&D - Ludres</b></li>
 						<li>11 novembre 2021 - 25 août 2023</li>
@@ -96,7 +96,7 @@
 					</ul>
 				</details>
 				<details class="mission">
-					<summary>Stagiaire ingénieur IA</summary>
+					<summary>Stagiaire ingénieur IA<span data-time data-start="10/05/2021" data-end="07/07/2021"></span></summary>
 					<ul class="description">
 						<li><b>Upscaling d'image en temps réel</b></li>
 						<li>10 mai 2021 - 7 juillet 2021</li>
@@ -120,7 +120,7 @@
 			<article>
 				<h2>Clarion Custines (groupe Hitachi)</h2>
 				<details class="mission">
-					<summary>Stagiaire développeur web</summary>
+					<summary>Stagiaire développeur web<span data-time data-start="07/01/2019" data-end="01/03/2019"></span></summary>
 					<ul class="description">
 						<li><b>Maintenance et évolution ERP gestion de contrat</b></li>
 						<li>7 janvier 2019 - 1 mars 2019</li>
@@ -142,7 +142,7 @@
 					</ul>
 				</details>
 				<details class="mission">
-					<summary>Stagiaire développeur web</summary>
+					<summary>Stagiaire développeur web<span data-time data-start="21/05/2018" data-end="29/06/2018"></span></summary>
 					<ul class="description">
 						<li><b>ERP gestion de contrat</b></li>
 						<li>21 Mai 2018 - 29 Juin 2018</li>
@@ -200,6 +200,25 @@
 			</article>
 		</section>
 	</main>
+	<script>
+		const convertToDate = (date) => {
+			if(!date) return new Date();
+			const [day, month, year] = date.split('/');
+			return new Date(year, month - 1, day);
+		}
+
+		document.querySelectorAll('[data-time]').forEach(element => {
+			const start = element.getAttribute('data-start'); 
+			const end = element.getAttribute('data-end');
+			const startDate = convertToDate(start);
+			const endDate = convertToDate(end);
+			const diff = Math.abs(endDate - startDate);
+			const diffMonths = diff / (1000 * 60 * 60 * 24 * 30);
+			const diffYears = diff / (1000 * 60 * 60 * 24 * 365);
+			const diffDisplay = diffYears < 1 ? `${Math.round(diffMonths)} mois` : `${Math.floor(diffYears)} ans ${Math.round((diffYears - Math.floor(diffYears)) * 12)} mois`;
+			element.innerHTML = ` (${diffDisplay})`;
+		});
+	</script>
   	<script defer src="https://data.lvoisin.dev/script.js" data-website-id="80ffa148-a7b5-47ad-8f7a-915ca849e60b"></script>
 </body>
 </html>
