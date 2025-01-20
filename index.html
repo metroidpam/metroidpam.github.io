@@ -22,7 +22,7 @@
 				<details open class="mission">
 					<summary>
 						<p>Software Engineer Consultant<span data-time data-start="01/09/2024"></span></p>
-						<small>Junior Software Engineer Consultant<span data-time data-start="12/02/2024" data-end="01/09/2024"></span></small>
+						<small>Junior Software Engineer Consultant<span data-time data-start="19/02/2024" data-end="31/08/2024"></span></small>
 					</summary>
 					<ul class="description">
 						<li><b>Service Central de Législations</b></li>
@@ -50,7 +50,7 @@
 					</ul>
 				</details>
 				<details class="mission">
-					<summary>Junior Software Engineer<span data-time data-start="11/09/2023" data-end="19/02/2024"></span></summary>
+					<summary>Junior Software Engineer<span data-time data-start="11/09/2023" data-end="18/02/2024"></span></summary>
 					<ul class="description">
 						<li><b>Projet eAdem</b></li>
 						<li>11 Septembre 2023 - 19 Février 2024</li>
@@ -215,14 +215,17 @@
 		}
 
 		document.querySelectorAll('[data-time]').forEach(element => {
-			const start = element.getAttribute('data-start'); 
+			const start = element.getAttribute('data-start');
 			const end = element.getAttribute('data-end');
 			const startDate = convertToDate(start);
 			const endDate = convertToDate(end);
 			const diff = Math.abs(endDate - startDate);
-			const diffMonths = diff / (1000 * 60 * 60 * 24 * 30);
-			const diffYears = diff / (1000 * 60 * 60 * 24 * 365);
-			const diffDisplay = diffYears < 1 ? `${Math.round(diffMonths)} mois` : `${Math.floor(diffYears)} ans ${Math.round((diffYears - Math.floor(diffYears)) * 12)} mois`;
+			const diffDays = diff / (1000 * 60 * 60 * 24);
+			const diffMonths = diffDays / 30;
+			const diffYears = Math.floor(diffMonths / 12);
+			const remainingMonths = Math.round(diffMonths % 12);
+			console.log(element, diffYears, diffMonths);
+			const diffDisplay = diffYears < 1 ? `${Math.ceil(diffMonths)} mois` : `${diffYears} an${diffYears > 1 ? 's' : ''} ${remainingMonths} mois`;
 			element.innerHTML = ` (${diffDisplay})`;
 		});
 	</script>
