@@ -18,10 +18,13 @@
 		<section id="experiences">
 			<h1>Expériences professionnelles</h1>
 			<article>
-				<h2>ARHS group part of Accenture<span data-time data-start="11/09/2023"></span></h2>
+				<h2>Signé mais pas encore dévoilé.</h2>
+			</article>
+			<article>
+				<h2>ARHS group part of Accenture<span data-time data-start="11/09/2023" data-end="14/10/2026"></span></h2>
 				<details open class="mission">
 					<summary>
-						<p>Software Engineer<span data-time data-start="05/01/2026"></span></p>
+						<p>Software Engineer<span data-time data-start="05/01/2026" data-end="14/10/2026"></span></p>
 					</summary>
 					<ul class="description">
 						<li><b>Projet eAdem</b></li>
@@ -33,6 +36,7 @@
 						<li>Développement évolutif de la solution</li>
 						<li>Support de production - investigation et résolution des incidents</li>
 						<li>Maintenance de la solution</li>
+						<li>Handover</li>
 					</ul>
 					<ul class="technologies">
 						<li>Java 21</li>
@@ -253,8 +257,7 @@
 			const diffMonths = diffDays / 30;
 			const diffYears = Math.floor(diffMonths / 12);
 			const remainingMonths = Math.round(diffMonths % 12);
-			console.log(element, diffYears, diffMonths);
-			const diffDisplay = diffYears < 1 ? `${Math.ceil(diffMonths)} mois` : `${diffYears} an${diffYears > 1 ? 's' : ''} ${remainingMonths} mois`;
+			const diffDisplay = diffYears < 1 ? `${Math.round(diffMonths)} mois` : `${diffYears} an${diffYears > 1 ? 's' : ''} ${remainingMonths} mois`;
 			element.innerHTML = ` (${diffDisplay})`;
 		});
 	</script>
